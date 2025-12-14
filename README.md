@@ -251,7 +251,7 @@ Ces captures d’écran doivent être ajoutées dans le rapport (obligatoire dan
 * Analyse cross-service (corrélations)
 * Heatmap heure/jour si timestamps disponibles
 * Système d’alertes qualité
-* NLP sur les notes/commentaires (si fournis plus tard)
+* NLP sur les notes/commentaires (si fournis plus tard) 
 
 ---
 
