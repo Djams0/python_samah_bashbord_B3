@@ -183,7 +183,7 @@ pip install -r requirements.txt
 ### ▶️ **Lancement du dashboard**
 
 ```bash
-streamlit run src/app.py
+python -m streamlit run src/app.py
 ```
 
 Le dashboard sera disponible sur :
@@ -259,8 +259,8 @@ Ces captures d’écran doivent être ajoutées dans le rapport (obligatoire dan
 
 Projet réalisé dans le cadre du module **"Coder avec l’IA Générative" — EPSI B3 DEV IA**, par :
 
-* *[Noms des membres du groupe]*
+* *Mansour Djamil NDIAYE / Arsene Arayi Mbengue / Mamadou Seck*
 
 Encadré par :
 
-* *[Nom du professeur]*
+* *Ghalloussi Samah*
