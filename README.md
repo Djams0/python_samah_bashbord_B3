@@ -1,30 +1,34 @@
-# **README.md**
-
 # 📊 Dashboard Analytique — Dashaalia
 
-Projet EPSI • B3 DEV IA
+**Projet EPSI • B3 DEV IA**
 Atelier : *Coder avec l’IA Générative*
 
 ---
 
-## 🚀 **1. Présentation du projet**
+## 🚀 1. Présentation du projet
 
-Ce projet consiste à développer un **dashboard analytique complet** permettant de visualiser, analyser et explorer les données des sessions d’interprétariat médical de **Dashaalia**, une plateforme enrichie par Intelligence Artificielle.
+Ce projet consiste à développer un **dashboard analytique interactif** permettant de visualiser, analyser et interpréter les données issues des sessions d’interprétariat médical de **Dashaalia**, une plateforme d’interprétariat augmentée par Intelligence Artificielle.
 
-Le tableau de bord permet :
+L’application propose :
 
-* d’explorer les comportements des utilisateurs,
-* d’analyser les performances par service médical,
-* de suivre l’évolution du nombre de sessions,
-* de mesurer la qualité des interactions et de la reconnaissance vocale,
-* d’obtenir des KPIs métier essentiels.
+* une **analyse quantitative** des sessions,
+* des **indicateurs métier (KPIs)** clairs,
+* des **visualisations interactives**,
+* des **filtres dynamiques globaux**,
+* une page **“Insights IA”** générant automatiquement des analyses textuelles simulant une IA générative.
 
-⚙️ **Technologie utilisée :** Python + Streamlit
+🎯 L’objectif pédagogique est de démontrer la capacité à :
+
+* concevoir une application de **data analytics maintenable**,
+* exploiter un dataset réel de bout en bout,
+* intégrer l’IA générative comme **assistant de développement et d’analyse**.
+
+⚙️ **Technologie utilisée :** Python • Streamlit • Plotly
 📁 **Dataset :** `sessions_dataset_320.csv` (320 lignes)
 
 ---
 
-## 📂 **2. Arborescence du projet**
+## 📂 2. Arborescence du projet
 
 ```
 dashboard-analytics/
@@ -37,13 +41,13 @@ dashboard-analytics/
 │   ├── data_loader.py        # Chargement & nettoyage du dataset
 │   ├── charts.py             # Fonctions de visualisation Plotly
 │   ├── filters.py            # Gestion des filtres Streamlit
-│   ├── utils.py              # Calculs & KPIs
+│   ├── utils.py              # Calculs, KPIs & Insights IA
 │
 ├── assets/
 │   └── logo.png              # Logo Dashaalia (optionnel)
 │
 ├── tests/
-│   └── test_data.py          # Tests unitaires (bonus)
+│   └── test_data.py          # Tests unitaires sur les données (bonus)
 │
 ├── README.md
 ├── requirements.txt
@@ -52,125 +56,142 @@ dashboard-analytics/
 
 ---
 
-## 🧠 **3. Fonctionnalités principales**
+## 🧠 3. Fonctionnalités principales
 
-### 🎯 **A. KPIs (indicateurs clés)**
+### 🎯 A. KPIs (Indicateurs clés)
 
-* Total de sessions
-* Durée moyenne des sessions
+Les indicateurs sont calculés dynamiquement selon les filtres appliqués :
+
+* Nombre total de sessions
+* Durée moyenne des sessions (minutes)
 * Score moyen de qualité (0–1)
-* % de segments non reconnus
+* Pourcentage de segments audio non reconnus
 * Ratio interactions patient / praticien
 
 ---
 
-### 📈 **B. Visualisations interactives**
+### 📈 B. Visualisations interactives
 
-Toutes les visualisations utilisent **Plotly** (zoom, hover, export PNG).
+Toutes les visualisations utilisent **Plotly**, offrant :
 
-| Visualisation                         | Description                               |
-| ------------------------------------- | ----------------------------------------- |
-| **Top des langues**                   | Classement des langues les plus utilisées |
-| **Évolution du nombre de sessions**   | Série temporelle journalière/mensuelle    |
-| **Répartition par service**           | Pie chart des services médicaux           |
-| **Analyse des interactions**          | Scatter patient vs praticien              |
-| **Distribution des notes praticiens** | Histogrammes & statistiques               |
-| **Segments non reconnus**             | Analyse qualité audio & anomalies         |
+* zoom,
+* survol (hover),
+* export d’images.
+
+| Visualisation                  | Description                               |
+| ------------------------------ | ----------------------------------------- |
+| Top des langues                | Classement des langues les plus utilisées |
+| Évolution des sessions         | Série temporelle (jours / mois)           |
+| Répartition par service        | Diagramme circulaire                      |
+| Interactions patient/praticien | Scatter plot comparatif                   |
+| Notes des praticiens           | Histogrammes et statistiques              |
+| Segments non reconnus          | Analyse qualité & détection visuelle      |
 
 ---
 
-### 🎚️ **C. Filtres disponibles**
+### 🎚️ C. Filtres globaux
 
-Les filtres appliquent un sous-ensemble dynamique sur l’intégralité du dashboard :
+Les filtres s’appliquent **à l’ensemble de l’application** :
 
 * Plage de dates
 * Service médical
 * Langue
 * Type de device (webapp / mobile)
 
-Les filtres mettent automatiquement à jour :
+Ils mettent automatiquement à jour :
 
-* tous les graphiques
-* tous les KPIs
-* le tableau final
-* l’export CSV filtré
-
----
-
-### 📤 **D. Export**
-
-* Export CSV des sessions filtrées
-* Téléchargement direct
+* KPIs
+* graphiques
+* tableau de données
+* export CSV
+* page **Insights IA**
 
 ---
 
-### 📄 **E. Tableau des données**
+### 🧠 D. Page “Insights IA” (Analyse automatique)
 
-Un tableau filtrable et triable affichant un échantillon ou l’ensemble du dataset filtré.
+Une page dédiée **🧠 Insights IA** génère automatiquement des analyses textuelles à partir des données filtrées.
 
----
+Exemples d’insights :
 
-## 🧩 **4. Fonctionnement des modules**
+* langue la plus utilisée sur la période,
+* service dominant,
+* évolution des sessions (hausse / baisse),
+* niveau de qualité global,
+* alertes sur les segments non reconnus,
+* équilibre des interactions patient / praticien.
 
-### 🔹 **`app.py`**
+📌 Ces insights sont produits via des **règles analytiques simulant un raisonnement d’IA générative**, illustrant l’usage de l’IA pour :
 
-Fichier principal :
-
-* gère la structure de la page
-* charge les modules
-* contient la logique Streamlit (sidebar, mise en page, KPIs)
-* appelle les fonctions de `charts.py`, `filters.py`, `utils.py`
-
-### 🔹 **`data_loader.py`**
-
-* Chargement CSV avec pandas
-* Nettoyage des données (dates, types, valeurs manquantes)
-* Ajout de colonnes : `year`, `month`, `ratio_interactions`, etc.
-* Exposé via une fonction `load_data()` avec cache Streamlit
-
-### 🔹 **`charts.py`**
-
-Contient **toutes** les visualisations :
-
-* bar chart top langues
-* time series sessions
-* pie des services
-* scatter interactions
-* histogramme notes
-* boxplots / KPIs avancés
-
-### 🔹 **`filters.py`**
-
-* Définit tous les filtres Streamlit (date, langue, service...)
-* Applique les filtres au dataframe
-* Retourne un dataframe filtré (`dff`)
-
-### 🔹 **`utils.py`**
-
-* KPI calculs (durée moyenne, qualité, ratios)
-* Fonctions pour conversions / nettoyage
-* Fonctions d’agrégation (groupby dates, services, langues)
-
-### 🔹 **`tests/test_data.py`**
-
-Tests unitaires (bonus) :
-
-* validité du chargement
-* absence de colonnes manquantes
-* typage cohérent
-* dates valides converties
+* interpréter des données,
+* produire des conclusions lisibles métier,
+* assister la prise de décision.
 
 ---
 
-## 🛠️ **5. Installation & exécution**
+### 📄 E. Tableau & export
 
-### ✔️ **Prérequis**
+* Tableau interactif des données filtrées
+* Tri et inspection des lignes
+* Export CSV du dataset filtré
+
+---
+
+## 🧩 4. Fonctionnement des modules
+
+### 🔹 `app.py`
+
+* Point d’entrée Streamlit
+* Gestion de la navigation (Dashboard / Insights IA)
+* Application globale des filtres
+* Affichage KPIs, graphiques, tableaux
+
+### 🔹 `data_loader.py`
+
+* Chargement CSV avec cache Streamlit
+* Nettoyage des types et dates
+* Création de colonnes dérivées :
+
+  * `year`, `month`
+  * `ratio_interactions`
+
+### 🔹 `charts.py`
+
+* Centralise toutes les visualisations Plotly
+* Garantit une logique claire et réutilisable
+
+### 🔹 `filters.py`
+
+* Définit les filtres Streamlit
+* Applique les conditions au dataframe
+* Retourne le dataframe filtré unique (`dff`)
+
+### 🔹 `utils.py`
+
+* Calcul des KPIs
+* Fonctions d’agrégation
+* Génération des **Insights IA automatiques**
+
+### 🔹 `tests/test_data.py`
+
+* Tests unitaires (bonus) :
+
+  * chargement du dataset
+  * cohérence des colonnes
+  * types de données
+  * validité des dates
+
+---
+
+## 🛠️ 5. Installation & exécution
+
+### ✔️ Prérequis
 
 * Python 3.9+
 * pip
-* Streamlit installé
+* Streamlit
 
-### ✔️ **Installation**
+### ✔️ Installation
 
 ```bash
 git clone https://github.com/.../dashboard-analytics.git
@@ -178,89 +199,72 @@ cd dashboard-analytics
 pip install -r requirements.txt
 ```
 
----
-
-### ▶️ **Lancement du dashboard**
+### ▶️ Lancement
 
 ```bash
 python -m streamlit run src/app.py
 ```
 
-Le dashboard sera disponible sur :
-👉 **[http://localhost:8501](http://localhost:8501)**
+📍 Application accessible sur :
+👉 [http://localhost:8501](http://localhost:8501)
 
 ---
 
-## 🧪 **6. Dataset utilisé**
+## 🧪 6. Dataset utilisé
 
-Le fichier **sessions_dataset_320.csv** contient les colonnes suivantes :
-
-| Colonne                | Description                |
-| ---------------------- | -------------------------- |
-| session_id             | Identifiant unique         |
-| date                   | Date de la session         |
-| service                | Service médical            |
-| langue                 | Langue parlée              |
-| duree_minutes          | Durée totale               |
-| interactions_patient   | Nb interactions du patient |
-| interactions_praticien | Nb interactions praticien  |
-| interactions_totales   | Total interactions         |
-| note_praticien         | Note (0–5)                 |
-| qualite_score          | Score (0–1)                |
-| segments_non_reconnus  | Segments mal reconnus      |
-| device                 | webapp / mobile            |
+| Colonne                | Description                 |
+| ---------------------- | --------------------------- |
+| session_id             | Identifiant unique          |
+| date                   | Date de la session          |
+| service                | Service médical             |
+| langue                 | Langue parlée               |
+| duree_minutes          | Durée totale                |
+| interactions_patient   | Interactions patient        |
+| interactions_praticien | Interactions praticien      |
+| interactions_totales   | Total interactions          |
+| note_praticien         | Note (0–5)                  |
+| qualite_score          | Score (0–1)                 |
+| segments_non_reconnus  | Segments audio non reconnus |
+| device                 | webapp / mobile             |
 
 ---
 
-## 🧠 **7. Utilisation de l’IA Générative (à mettre dans votre rapport)**
+## 🤖 7. Utilisation de l’IA Générative (élément clé du barème)
 
-L’IA a été utilisée pour :
+L’IA générative a été utilisée pour :
 
-* générer une partie du code (visualisations, nettoyage de données)
-* proposer une architecture modulaire
-* créer le README
-* expliquer les choix de visualisation
-* rédiger automatiquement des tests
-* proposer des améliorations avancées (detector anomalies, comparateur hebdo)
+* concevoir l’architecture modulaire du projet
+* générer et améliorer le code Python
+* proposer les visualisations pertinentes
+* corriger les erreurs (debug assisté)
+* générer automatiquement les **Insights IA**
+* rédiger la documentation et les tests unitaires
 
-Ces captures d’écran doivent être ajoutées dans le rapport (obligatoire dans le barème).
-
----
-
-## 📦 **8. Déploiement (optionnel mais conseillé)**
-
-### 🚀 **Déploiement Streamlit Cloud**
-
-1. Pousser votre repo sur GitHub
-2. Aller sur : [https://share.streamlit.io](https://share.streamlit.io)
-3. Sélectionner le repo
-4. Point d’entrée : `src/app.py`
-5. Déploiement auto
-
-### 🌐 Autres options
-
-* Render.com
-* HuggingFace Spaces
-* Docker + serveur nginx
+📸 Des **captures d’écran des échanges avec l’IA** doivent être intégrées dans le rapport (exigence du barème).
 
 ---
 
-## ⭐ **9. Améliorations possibles**
+## ⭐ 8. Améliorations possibles
 
-* Détection des anomalies (sessions très longues)
-* Analyse cross-service (corrélations)
-* Heatmap heure/jour si timestamps disponibles
-* Système d’alertes qualité
-* NLP sur les notes/commentaires (si fournis plus tard) 
+* Détection automatique d’anomalies
+* Comparaison période N / N-1
+* Alertes qualité
+* Analyse prédictive
+* Intégration future d’un vrai LLM (API)
 
 ---
 
-## 📚 **10. Auteurs**
+## 📚 9. Auteurs
 
-Projet réalisé dans le cadre du module **"Coder avec l’IA Générative" — EPSI B3 DEV IA**, par :
+Projet réalisé dans le cadre du module
+**« Coder avec l’IA Générative » — EPSI B3 DEV IA**
 
-* *Mansour Djamil NDIAYE / Arsene Arayi Mbengue / Mamadou Seck*
+👥 Équipe :
 
-Encadré par :
+* **Mansour Djamil NDIAYE**
+* **Arsene Arayi Mbengue**
+* **Mamadou Seck**
 
-* *Ghalloussi Samah*
+👩‍🏫 Encadré par :
+
+* **Ghalloussi Samah**
